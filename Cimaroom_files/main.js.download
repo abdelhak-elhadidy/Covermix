@@ -1,0 +1,193 @@
+let tooglei = document.querySelector(".toogle-i");
+let phonelist = document.querySelector(".phone-list");
+let closex = document.querySelector(".close-x");
+
+tooglei.addEventListener("click", function () {
+  phonelist.classList.add("active");
+});
+
+closex.addEventListener("click", function () {
+  phonelist.classList.remove("active");
+});
+
+//  ------
+let liHeadr = document.querySelectorAll(".normal-nav li a");
+let scrollsec = document.querySelectorAll(".scroll-sec");
+
+liHeadr.forEach((element) => {
+  element.addEventListener("click", function () {
+    removeactiveLi();
+    element.classList.add("active");
+  });
+});
+
+function removeactiveLi() {
+  liHeadr.forEach((element) => {
+    element.classList.remove("active");
+  });
+}
+
+liHeadr[0].addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+liHeadr[1].addEventListener("click", function () {
+  let scrolo1 = scrollsec[1].offsetTop;
+  window.scrollTo({
+    top: scrolo1 - 100,
+    behavior: "smooth",
+  });
+});
+
+liHeadr[2].addEventListener("click", function () {
+  let scrolo2 = scrollsec[2].offsetTop;
+ 
+
+  window.scrollTo({
+    top: scrolo2 - 100,
+    behavior: "smooth",
+  });
+});
+
+// -----------
+let liHeadrPhone = document.querySelectorAll(".nav-phone li a");
+
+liHeadrPhone.forEach((element) => {
+  element.addEventListener("click", function () {
+    removeactiveLiPhone();
+    element.classList.add("active");
+  });
+});
+
+function removeactiveLiPhone() {
+  liHeadrPhone.forEach((element) => {
+    element.classList.remove("active");
+  });
+}
+
+liHeadrPhone[0].addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+  phonelist.classList.remove("active");
+});
+
+liHeadrPhone[1].addEventListener("click", function () {
+  let scrolo1 = scrollsec[1].offsetTop;
+  window.scrollTo({
+    top: scrolo1 - 100,
+    behavior: "smooth",
+  });
+  phonelist.classList.remove("active");
+});
+
+liHeadrPhone[2].addEventListener("click", function () {
+  let scrolo2 = scrollsec[2].offsetTop;
+
+  window.scrollTo({
+    top: scrolo2 - 100,
+    behavior: "smooth",
+  });
+  phonelist.classList.remove("active");
+});
+
+//  ---------
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 0) {
+    removeactiveLi();
+    liHeadr[0].classList.add("active");
+  }
+
+  if (window.scrollY >= scrollsec[1].offsetTop - 200) {
+    removeactiveLi();
+    liHeadr[1].classList.add("active");
+  }
+
+  if (window.scrollY >= scrollsec[2].offsetTop - 200) {
+    removeactiveLi();
+    liHeadr[2].classList.add("active");
+  }
+});
+
+//  ---------
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 0) {
+    removeactiveLiPhone();
+    liHeadrPhone[0].classList.add("active");
+  }
+
+  if (window.scrollY >= scrollsec[1].offsetTop - 200) {
+    removeactiveLiPhone();
+    liHeadrPhone[1].classList.add("active");
+  }
+
+  if (window.scrollY >= scrollsec[2].offsetTop - 200) {
+    removeactiveLiPhone();
+    liHeadrPhone[2].classList.add("active");
+  }
+});
+
+// arwwo
+
+let arwwo = document.querySelector(".arwwo");
+
+let bell = document.querySelector(".bell");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 600) {
+    arwwo.classList.add("active");
+  } else {
+    arwwo.classList.remove("active");
+  }
+});
+arwwo.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
+// <!-- Swiper -->
+
+var swiper = new Swiper(".app-img-swiper", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  loop: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 0,
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+  },
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
+
+var swiper = new Swiper(".coment-slider", {
+  loop: true,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+
+  slidesPerView: "auto",
+  speed: 5000,
+
+  grabCursor: true,
+  mousewheelControl: true,
+  keyboardControl: true,
+});
