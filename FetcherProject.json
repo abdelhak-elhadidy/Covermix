@@ -1,4 +1,4 @@
 { 
     "work":"true",
-    "mainurl":"http://127.0.0.1:8090/api/login"
+    "mainurl":"http://127.0.0.1:8090/api"
 }
